@@ -6,8 +6,8 @@
     "port": 3600,
     "username": "root",
     "password": "root",
-    "database": "",
-    "synchronize": false,
+    "database": "ploon",
+    "synchronize": true,
     "entities": ["entities/*.js"]
   }
 ]
