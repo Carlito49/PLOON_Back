@@ -8,9 +8,10 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
     password: 'root',
     database: 'ploon',
     entities: [
-        __dirname + '/../**/*.entity{.ts, .js}',
+        `dist/**/**/*.entity{.ts,.js}`,
     ],
     synchronize: true
 }
+
 
 

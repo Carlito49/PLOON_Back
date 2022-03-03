@@ -20,18 +20,10 @@ export class UtilisateurCentreInterets {
   })
   idUtilisateurCi: number;
 
-  @Column("int", {
-    name: "ID_UTILISATEUR",
-    unsigned: true,
-    default: () => "'0'",
-  })
+  @Column("int", { name: "ID_UTILISATEUR", unsigned: true })
   idUtilisateur: number;
 
-  @Column("int", {
-    name: "ID_CENTRE_INTERETS",
-    unsigned: true,
-    default: () => "'0'",
-  })
+  @Column("int", { name: "ID_CENTRE_INTERETS", unsigned: true })
   idCentreInterets: number;
 
   @Column("text", { name: "COMMENTAIRES_CI_UTILISATEUR" })

@@ -1,9 +1,13 @@
-import { Column, Entity, OneToMany } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { UtilisateurCentreInterets } from "./UtilisateurCentreInterets";
 
 @Entity("centre_interets", { schema: "ploon" })
 export class CentreInterets {
-  @Column("int", { primary: true, name: "ID_CENTRE_INTERETS", unsigned: true })
+  @PrimaryGeneratedColumn({
+    type: "int",
+    name: "ID_CENTRE_INTERETS",
+    unsigned: true,
+  })
   idCentreInterets: number;
 
   @Column("varchar", { name: "NOM_CENTRE_INTERET", nullable: true, length: 50 })

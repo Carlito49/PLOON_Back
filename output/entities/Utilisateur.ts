@@ -35,8 +35,8 @@ export class Utilisateur {
   })
   ageUtilisateur: number;
 
-  @Column("longblob", { name: "PHOTO_UTILISATEUR" })
-  photoUtilisateur: Buffer;
+  @Column("longblob", { name: "PHOTO_UTILISATEUR", nullable: true })
+  photoUtilisateur: Buffer | null;
 
   @Column("int", {
     name: "LIEU_HABITATION",
@@ -52,8 +52,13 @@ export class Utilisateur {
   })
   lieuNaissance: number;
 
-  @Column("tinyint", { name: "NOTE", unsigned: true, default: () => "'0'" })
-  note: number;
+  @Column("tinyint", {
+    name: "NOTE",
+    nullable: true,
+    unsigned: true,
+    default: () => "'0'",
+  })
+  note: number | null;
 
   @OneToMany(
     () => LieuRencontreUtilisateur,
