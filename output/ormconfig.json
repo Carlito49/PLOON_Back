@@ -8,6 +8,6 @@
     "password": "root",
     "database": "ploon",
     "synchronize": true,
-    "entities": ["entities/*.js"]
+    "entities": ["output/entities/*.js"]
   }
 ]
