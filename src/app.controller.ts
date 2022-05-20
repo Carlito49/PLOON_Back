@@ -8,8 +8,7 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  getUtilisateurs(): string {
-      return this.appService.getHello();
+  getConnection(): boolean {
+      return this.appService.getConnection();
   }
-
 }

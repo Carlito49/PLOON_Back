@@ -7,6 +7,10 @@ export class AppService {
     return 'Mon cul sur la commode!';
   }
 
+  getConnection(): boolean {
+    return true;
+  }
+
 
 
 }

@@ -17,6 +17,7 @@ export class UtilisateurService
     }
 
     async findAll(): Promise<Utilisateur[]> {
+        console.log('toto')
         return this.utilisateurRepository.find();
     }
 

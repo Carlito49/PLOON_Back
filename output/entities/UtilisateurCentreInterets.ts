@@ -9,8 +9,8 @@ import {
 import { CentreInterets } from "./CentreInterets";
 import { Utilisateur } from "./Utilisateur";
 
-@Index("FK_uci_utilisateur", ["idUtilisateur"], {})
 @Index("FK_uci_centre_interets", ["idCentreInterets"], {})
+@Index("FK_uci_utilisateur", ["idUtilisateur"], {})
 @Entity("utilisateur_centre_interets", { schema: "ploon" })
 export class UtilisateurCentreInterets {
   @PrimaryGeneratedColumn({

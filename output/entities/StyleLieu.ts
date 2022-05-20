@@ -10,11 +10,11 @@ export class StyleLieu {
   })
   idStyleLieu: number;
 
-  @Column("varchar", { name: "NOM_STYLE", length: 50, default: () => "'0'" })
-  nomStyle: string;
-
   @Column("text", { name: "COMMENTAIRE_STYLE" })
   commentaireStyle: string;
+
+  @Column("varchar", { name: "NOM_STYLE", length: 50, default: () => "'0'" })
+  nomStyle: string;
 
   @OneToMany(
     () => LieuRencontreStyleLieu,

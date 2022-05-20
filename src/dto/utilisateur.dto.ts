@@ -1,17 +1,20 @@
 
 export class UtilisateurDTO {
 
-    readonly nomUtilisateur: string;
+    nomUtilisateur: string;
     
-    readonly prenomUtilisateur: string;
+    prenomUtilisateur: string;
 
-    readonly ageUtilisateur: number;
+    emailUtilisateur: string;
 
-    readonly photoUtilisateur: Buffer | null;
+    ageUtilisateur?: number;
 
-    readonly lieuHabitation: number;
+    photoUtilisateur?: Buffer | null;
 
-    readonly lieuNaissance: number;
+    lieuHabitation?: number;
 
-    readonly note: number;
+    lieuNaissance?: number;
+
+    note?: number;
+
 }

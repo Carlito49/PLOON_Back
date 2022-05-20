@@ -6,11 +6,11 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
-import { LieuRencontre } from "./LieuRencontre";
 import { Utilisateur } from "./Utilisateur";
+import { LieuRencontre } from "./LieuRencontre";
 
-@Index("FK_lru_utilisateur", ["idUtilisateur"], {})
 @Index("FK_lru_lieu_rencontre", ["idLieuRencontre"], {})
+@Index("FK_lru_utilisateur", ["idUtilisateur"], {})
 @Entity("lieu_rencontre_utilisateur", { schema: "ploon" })
 export class LieuRencontreUtilisateur {
   @PrimaryGeneratedColumn({
@@ -35,16 +35,6 @@ export class LieuRencontreUtilisateur {
   idLieuRencontre: number;
 
   @ManyToOne(
-    () => LieuRencontre,
-    (lieuRencontre) => lieuRencontre.lieuRencontreUtilisateurs,
-    { onDelete: "CASCADE", onUpdate: "CASCADE" }
-  )
-  @JoinColumn([
-    { name: "ID_LIEU_RENCONTRE", referencedColumnName: "idLieuRencontre" },
-  ])
-  idLieuRencontre2: LieuRencontre;
-
-  @ManyToOne(
     () => Utilisateur,
     (utilisateur) => utilisateur.lieuRencontreUtilisateurs,
     { onDelete: "CASCADE", onUpdate: "CASCADE" }
@@ -53,4 +43,14 @@ export class LieuRencontreUtilisateur {
     { name: "ID_UTILISATEUR", referencedColumnName: "idUtilisateur" },
   ])
   idUtilisateur2: Utilisateur;
+
+  @ManyToOne(
+    () => LieuRencontre,
+    (lieuRencontre) => lieuRencontre.lieuRencontreUtilisateurs,
+    { onDelete: "CASCADE", onUpdate: "CASCADE" }
+  )
+  @JoinColumn([
+    { name: "ID_LIEU_RENCONTRE", referencedColumnName: "idLieuRencontre" },
+  ])
+  idLieuRencontre2: LieuRencontre;
 }

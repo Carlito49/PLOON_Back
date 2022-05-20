@@ -11,8 +11,8 @@ import { LieuRencontreUtilisateur } from "./LieuRencontreUtilisateur";
 import { Lieu } from "./Lieu";
 import { UtilisateurCentreInterets } from "./UtilisateurCentreInterets";
 
-@Index("FK_utilisateur_lieu_habitation", ["lieuHabitation"], {})
 @Index("FK_utilisateur_lieu_naissance", ["lieuNaissance"], {})
+@Index("FK_utilisateur_lieu_habitation", ["lieuHabitation"], {})
 @Entity("utilisateur", { schema: "ploon" })
 export class Utilisateur {
   @PrimaryGeneratedColumn({
@@ -21,12 +21,6 @@ export class Utilisateur {
     unsigned: true,
   })
   idUtilisateur: number;
-
-  @Column("tinytext", { name: "NOM_UTILISATEUR" })
-  nomUtilisateur: string;
-
-  @Column("tinytext", { name: "PRENOM_UTILISATEUR" })
-  prenomUtilisateur: string;
 
   @Column("tinyint", {
     name: "AGE_UTILISATEUR",
@@ -40,17 +34,19 @@ export class Utilisateur {
 
   @Column("int", {
     name: "LIEU_HABITATION",
+    nullable: true,
     unsigned: true,
     default: () => "'0'",
   })
-  lieuHabitation: number;
+  lieuHabitation: number | null;
 
   @Column("int", {
     name: "LIEU_NAISSANCE",
+    nullable: true,
     unsigned: true,
     default: () => "'0'",
   })
-  lieuNaissance: number;
+  lieuNaissance: number | null;
 
   @Column("tinyint", {
     name: "NOTE",
@@ -59,6 +55,12 @@ export class Utilisateur {
     default: () => "'0'",
   })
   note: number | null;
+
+  @Column("tinytext", { name: "NOM_UTILISATEUR" })
+  nomUtilisateur: string;
+
+  @Column("tinytext", { name: "PRENOM_UTILISATEUR" })
+  prenomUtilisateur: string;
 
   @OneToMany(
     () => LieuRencontreUtilisateur,

@@ -21,15 +21,15 @@ export class LieuRencontre {
   })
   idLieuRencontre: number;
 
+  @Column("varchar", { name: "NOM_LIEU", length: 150, default: () => "'0'" })
+  nomLieu: string;
+
   @Column("int", {
     name: "LIEU_RENCONTRE",
     unsigned: true,
     default: () => "'0'",
   })
   lieuRencontre: number;
-
-  @Column("varchar", { name: "NOM_LIEU", length: 150, default: () => "'0'" })
-  nomLieu: string;
 
   @ManyToOne(() => Lieu, (lieu) => lieu.lieuRencontres, {
     onDelete: "CASCADE",
