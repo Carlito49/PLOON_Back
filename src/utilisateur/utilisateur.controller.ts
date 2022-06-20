@@ -19,15 +19,16 @@ export class UtilisateurController
     @Header('Access-Control-Allow-Origin', 'http://localhost:19000')
     @Header('Access-Control-Allow-Credentials', 'true')
     getUtilisateurs(): Promise<Utilisateur[]> {
-        console.log('Méthode appelée')
+        console.log('controlleur utilisateur appelé')
         return this.utilisateurService.findAll();
     }
 
-    @Get(':id')
+    @Get('find/:id')
     getOneUtilisateur(@Param('id') id: number): Promise<Utilisateur> {
+        console.log("Find One controlleur appelé")
         return this.utilisateurService.findOne(id);
     }
-  
+
     @Post()
     addOneUtilisateur(@Body() utilisateurDTO: UtilisateurDTO): Promise<Utilisateur> {
         return this.utilisateurService.create(utilisateurDTO);

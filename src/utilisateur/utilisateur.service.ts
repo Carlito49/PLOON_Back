@@ -13,11 +13,12 @@ export class UtilisateurService
     ) {}
 
     async findOne(id: number) {
+        console.log("Find One service appelé");
         return this.utilisateurRepository.findOne(id);
     }
 
     async findAll(): Promise<Utilisateur[]> {
-        console.log('toto')
+        console.log('service utilisateur appelé')
         return this.utilisateurRepository.find();
     }
 
