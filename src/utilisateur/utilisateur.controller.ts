@@ -29,6 +29,12 @@ export class UtilisateurController
         return this.utilisateurService.findOne(id);
     }
 
+    @Get('findName/:name')
+    getUtilisateurByName(@Param('name') name: string): Promise<Utilisateur> {
+        console.log("FindByNameController appelé")
+        return this.utilisateurService.findByName(name);
+    }
+
     @Post()
     addOneUtilisateur(@Body() utilisateurDTO: UtilisateurDTO): Promise<Utilisateur> {
         return this.utilisateurService.create(utilisateurDTO);

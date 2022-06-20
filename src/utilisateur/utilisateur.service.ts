@@ -22,6 +22,11 @@ export class UtilisateurService
         return this.utilisateurRepository.find();
     }
 
+    async findByName(nomUtilisateur: string): Promise<Utilisateur | undefined> {
+        console.log("FindByName appelé")
+        return this.utilisateurRepository.findOne({ nomUtilisateur });
+    }
+
     async create(utilisateurDTO: UtilisateurDTO) {
         const utilisateurEntity = new Utilisateur();
         utilisateurEntity.nomUtilisateur = utilisateurDTO.nomUtilisateur;
